@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1093440817273",
+    "firebase_url": "https://tambak-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tambak-app",
+    "storage_bucket": "tambak-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093440817273:android:a53582a28dab63e8fd6ca8",
+        "android_client_info": {
+          "package_name": "com.example.tambakapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwCB7RFWz-z3LtpPSPeFWaajO-H3dJoNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
