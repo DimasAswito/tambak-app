@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tambak App</string>
+    <string name="status">Status</string>
 </resources>
