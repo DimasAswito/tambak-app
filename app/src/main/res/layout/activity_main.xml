@@ -149,19 +149,19 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/tds" />
+                            android:src="@drawable/temp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="TDS"
+                            android:text="Suhu Air (C)"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textColor="@color/md_theme_onTertiaryFixedVariant_highContrast" />
 
                         <TextView
-                            android:id="@+id/tds_value"
+                            android:id="@+id/suhuAir_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -170,7 +170,7 @@
                             android:textColor="@color/md_theme_onTertiaryFixedVariant_highContrast" />
 
                         <com.example.tambakapp.customView.StatusSensorView
-                            android:id="@+id/tds_status"
+                            android:id="@+id/suhuAir_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/status"
@@ -203,7 +203,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Turbidity"
+                            android:text="Turbidity (NTU)"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textColor="@color/md_theme_onTertiaryFixedVariant_highContrast" />
@@ -445,7 +445,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/relay_control_button"
+        android:id="@+id/pakan_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

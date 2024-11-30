@@ -21,8 +21,8 @@ class KualitasAirView @JvmOverloads constructor(
     fun updateStatusAir(status: String) {
         text = status
         when (status) {
-            "Bagus" -> setTextColor(ContextCompat.getColor(context, R.color.green))
-            "Tidak Bagus" -> setTextColor(ContextCompat.getColor(context, R.color.yellow))
+            "Layak" -> setTextColor(ContextCompat.getColor(context, R.color.green))
+            "Tidak Layak" -> setTextColor(ContextCompat.getColor(context, R.color.yellow))
             else -> setTextColor(ContextCompat.getColor(context, R.color.black))
         }
     }

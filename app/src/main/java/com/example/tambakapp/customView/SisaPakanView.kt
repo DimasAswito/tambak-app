@@ -13,11 +13,6 @@ class SisaPakanView @JvmOverloads constructor(
         // Default style for the TextView
         setTextColor(ContextCompat.getColor(context, R.color.black))
     }
-
-    /**
-     * Update the status of Sisa Pakan and change the color based on the value.
-     * @param value The percentage of sisa pakan (0.0 - 100.0)
-     */
     fun updateSisaPakan(value: Float) {
         text = "${String.format("%.1f%%", value)}"
         when {
