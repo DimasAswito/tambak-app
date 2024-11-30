@@ -27,21 +27,59 @@ class FuzzyHelper {
     }
 
     fun evaluateKualitasAir(phStatus: String, suhuAirStatus: String, turbidityStatus: String): String {
+//        return when {
+//            phStatus == "Rendah" && suhuAirStatus == "Rendah" && turbidityStatus == "Rendah" -> "Layak"
+//            phStatus == "Rendah" && suhuAirStatus == "Rendah" && turbidityStatus == "Normal" -> "Layak"
+//            phStatus == "Rendah" && suhuAirStatus == "Rendah" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+//            phStatus == "Rendah" && suhuAirStatus == "Normal" && turbidityStatus == "Rendah" -> "Layak"
+//            phStatus == "Rendah" && suhuAirStatus == "Normal" && turbidityStatus == "Normal" -> "Layak"
+//            phStatus == "Rendah" && suhuAirStatus == "Normal" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+//            phStatus == "Rendah" && suhuAirStatus == "Tinggi" -> "Tidak Layak"
+//            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus != "Tinggi" -> "Layak"
+//            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+//            phStatus == "Normal" && suhuAirStatus == "Normal" && turbidityStatus != "Tinggi" -> "Layak"
+//            phStatus == "Normal" && suhuAirStatus == "Tinggi" -> "Tidak Layak"
+//
+//            phStatus == "Tinggi" -> "Tidak Layak"
+//            else -> "Tidak Layak"
+//        }
+
         return when {
+            // Kondisi untuk pH Rendah
             phStatus == "Rendah" && suhuAirStatus == "Rendah" && turbidityStatus == "Rendah" -> "Layak"
             phStatus == "Rendah" && suhuAirStatus == "Rendah" && turbidityStatus == "Normal" -> "Layak"
             phStatus == "Rendah" && suhuAirStatus == "Rendah" && turbidityStatus == "Tinggi" -> "Tidak Layak"
             phStatus == "Rendah" && suhuAirStatus == "Normal" && turbidityStatus == "Rendah" -> "Layak"
             phStatus == "Rendah" && suhuAirStatus == "Normal" && turbidityStatus == "Normal" -> "Layak"
             phStatus == "Rendah" && suhuAirStatus == "Normal" && turbidityStatus == "Tinggi" -> "Tidak Layak"
-            phStatus == "Rendah" && suhuAirStatus == "Tinggi" -> "Tidak Layak"
-            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus != "Tinggi" -> "Layak"
-            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus == "Tinggi" -> "Tidak Layak"
-            phStatus == "Normal" && suhuAirStatus == "Normal" && turbidityStatus != "Tinggi" -> "Layak"
-            phStatus == "Normal" && suhuAirStatus == "Tinggi" -> "Tidak Layak"
+            phStatus == "Rendah" && suhuAirStatus == "Tinggi" && turbidityStatus == "Rendah" -> "Tidak Layak"
+            phStatus == "Rendah" && suhuAirStatus == "Tinggi" && turbidityStatus == "Normal" -> "Tidak Layak"
+            phStatus == "Rendah" && suhuAirStatus == "Tinggi" && turbidityStatus == "Tinggi" -> "Tidak Layak"
 
-            phStatus == "Tinggi" -> "Tidak Layak"
+            // Kondisi untuk pH Normal
+            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus == "Rendah" -> "Layak"
+            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus == "Normal" -> "Layak"
+            phStatus == "Normal" && suhuAirStatus == "Rendah" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+            phStatus == "Normal" && suhuAirStatus == "Normal" && turbidityStatus == "Rendah" -> "Layak"
+            phStatus == "Normal" && suhuAirStatus == "Normal" && turbidityStatus == "Normal" -> "Layak"
+            phStatus == "Normal" && suhuAirStatus == "Normal" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+            phStatus == "Normal" && suhuAirStatus == "Tinggi" && turbidityStatus == "Rendah" -> "Tidak Layak"
+            phStatus == "Normal" && suhuAirStatus == "Tinggi" && turbidityStatus == "Normal" -> "Tidak Layak"
+            phStatus == "Normal" && suhuAirStatus == "Tinggi" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+
+            // Kondisi untuk pH Tinggi
+            phStatus == "Tinggi" && suhuAirStatus == "Rendah" && turbidityStatus == "Rendah" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Rendah" && turbidityStatus == "Normal" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Rendah" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Normal" && turbidityStatus == "Rendah" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Normal" && turbidityStatus == "Normal" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Normal" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Tinggi" && turbidityStatus == "Rendah" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Tinggi" && turbidityStatus == "Normal" -> "Tidak Layak"
+            phStatus == "Tinggi" && suhuAirStatus == "Tinggi" && turbidityStatus == "Tinggi" -> "Tidak Layak"
+
             else -> "Tidak Layak"
         }
+
     }
 }
