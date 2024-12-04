@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.tambakapp" />
-                  <option name="mobileSdkAppId" value="1:1093440817273:android:a53582a28dab63e8fd6ca8" />
-                  <option name="projectId" value="tambak-app" />
-                  <option name="projectNumber" value="1093440817273" />
+                  <option name="mobileSdkAppId" value="1:241018411557:android:35b824eed08599a38b3dcc" />
+                  <option name="projectId" value="tambak-app-8debd" />
+                  <option name="projectNumber" value="241018411557" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
