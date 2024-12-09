@@ -383,7 +383,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dynano"
+                        android:text="Dynamo"
                         android:textStyle="bold"
                         android:textColor="@color/md_theme_onTertiaryFixedVariant_highContrast" />
 

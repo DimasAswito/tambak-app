@@ -1,5 +1,6 @@
 package com.example.tambakapp
 
+import FuzzyHelper
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -48,15 +49,12 @@ class MainActivity : AppCompatActivity() {
                 suhuAirValueTextView.text = "$suhuAir°"
                 turbidityValueTextView.text = turbidity.toString()
 
-                val phStatus = fuzzyHelper.evaluatePH(ph)
-                val suhuAirStatus = fuzzyHelper.evaluateSuhuAir(suhuAir)
-                val turbidityStatus = fuzzyHelper.evaluateTurbidity(turbidity)
 
-                phStatusView.updateStatus(phStatus)
-                suhuAirStatusView.updateStatus(suhuAirStatus)
-                turbidityStatusView.updateStatus(turbidityStatus)
-
-                val kualitasAir = fuzzyHelper.evaluateKualitasAir(phStatus, suhuAirStatus, turbidityStatus)
+//                phStatusView.updateStatus(phStatus.toString())
+//                suhuAirStatusView.updateStatus(suhuAirStatus.toString())
+//                turbidityStatusView.updateStatus(turbidityStatus.toString())
+                determineStatus(ph, suhuAir.toFloat(), turbidity.toFloat())
+                val kualitasAir = fuzzyHelper.evaluateKualitasAir(ph, suhuAir.toFloat(), turbidity.toFloat())
                 kualitasAirView.updateStatusAir(kualitasAir)
             }
 
@@ -105,4 +103,34 @@ class MainActivity : AppCompatActivity() {
     private fun updatePakanButton() {
         pakanButton.text = if (isPakanOpen) "Tutup Pakan" else "Buka Pakan"
     }
+
+    fun determineStatus(ph: Float, suhu: Float, turbidity: Float) {
+        val fuzzyHelper = FuzzyHelper()
+
+        val phStatusView: StatusSensorView = findViewById(R.id.ph_status)
+        val suhuAirStatusView: StatusSensorView = findViewById(R.id.suhuAir_status)
+        val turbidityStatusView: StatusSensorView = findViewById(R.id.turbidity_status)
+
+        val phStatus = when {
+            fuzzyHelper.pHRendah(ph) > fuzzyHelper.pHNormal(ph) && fuzzyHelper.pHRendah(ph) > fuzzyHelper.pHTinggi(ph) -> "Rendah"
+            fuzzyHelper.pHNormal(ph) > fuzzyHelper.pHRendah(ph) && fuzzyHelper.pHNormal(ph) > fuzzyHelper.pHTinggi(ph) -> "Normal"
+            else -> "Tinggi"
+        }
+
+        val suhuStatus = when {
+            fuzzyHelper.suhuRendah(suhu) > fuzzyHelper.suhuNormal(suhu) && fuzzyHelper.suhuRendah(suhu) > fuzzyHelper.suhuTinggi(suhu) -> "Rendah"
+            fuzzyHelper.suhuNormal(suhu) > fuzzyHelper.suhuRendah(suhu) && fuzzyHelper.suhuNormal(suhu) > fuzzyHelper.suhuTinggi(suhu) -> "Normal"
+            else -> "Tinggi"
+        }
+
+        val turbidityStatus = when {
+            fuzzyHelper.turbidityRendah(turbidity) > fuzzyHelper.turbidityNormal(turbidity) && fuzzyHelper.turbidityRendah(turbidity) > fuzzyHelper.turbidityTinggi(turbidity) -> "Rendah"
+            fuzzyHelper.turbidityNormal(turbidity) > fuzzyHelper.turbidityRendah(turbidity) && fuzzyHelper.turbidityNormal(turbidity) > fuzzyHelper.turbidityTinggi(turbidity) -> "Normal"
+            else -> "Tinggi"
+        }
+                        phStatusView.updateStatus(fuzzyHelper.categorizepH(ph))
+                suhuAirStatusView.updateStatus(fuzzyHelper.categorizeSuhu(suhu))
+                turbidityStatusView.updateStatus(fuzzyHelper.categorizeTurbidity(turbidity))
+    }
+
 }
